@@ -5,24 +5,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AssignmentWebASP.NET.Controllers
+namespace AssignmentWebASP.NET.Areas.AdminManager.Controllers
 {
-    public class AdminController : Controller
+    public class LoginController : Controller
     {
-        // GET: Admin
+        // GET: AdminManager/Login
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
-
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-
+        
         [HttpPost]
-        public ActionResult Login(Admin adminModel)
+        public ActionResult Index(Admin adminModel)
         {
             using (DbModels db = new DbModels())
             {
@@ -30,23 +26,21 @@ namespace AssignmentWebASP.NET.Controllers
                 if (email == null)
                 {
                     adminModel.LoginErrorMessage = "Sai tài khoản hoặc mật khẩu.";
-                    return View("Login", adminModel);
+                    return View("Index", adminModel);
                 }
                 else
                 {
                     Session["AdminID"] = email.id;
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("/Index","Home");
                 }
 
             }
         }
 
-
         public ActionResult LogOut()
         {
             Session.Abandon();
-            return RedirectToAction("Login", "Admin");
+            return RedirectToAction("Index", "Login");
         }
-
     }
 }
