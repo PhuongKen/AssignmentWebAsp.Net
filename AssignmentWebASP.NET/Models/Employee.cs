@@ -24,6 +24,7 @@ namespace AssignmentWebASP.NET.Models
         public string address { get; set; }
         public System.DateTime createAt { get; set; }
         public int roleId { get; set; }
+        public System.DateTime endDate { get; set; }
     
         public virtual Role Role { get; set; }
     }

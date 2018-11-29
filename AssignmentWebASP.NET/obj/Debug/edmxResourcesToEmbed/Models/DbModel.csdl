@@ -20,8 +20,10 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+    <Property Name="status" Type="Boolean" />
+    <Property Name="createAt" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Customer">
     <Key>
@@ -54,6 +56,7 @@
     <Property Name="createAt" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="roleId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Role" Relationship="Self.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
+    <Property Name="endDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Image">
     <Key>

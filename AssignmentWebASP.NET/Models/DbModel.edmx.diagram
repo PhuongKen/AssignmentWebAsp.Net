@@ -7,7 +7,7 @@
       <Diagram DiagramId="b62032472e344e6ab252cb578dd2476a" Name="Diagram1">
         <EntityTypeShape EntityType="DBOrderModel.Admin" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBOrderModel.Category" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBOrderModel.Customer" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOrderModel.Customer" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="DBOrderModel.Employee" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DBOrderModel.Image" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBOrderModel.Material" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />

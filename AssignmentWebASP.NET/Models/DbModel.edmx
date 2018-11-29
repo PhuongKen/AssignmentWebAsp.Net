@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -25,7 +25,9 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="image" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="bit" />
+          <Property Name="createAt" Type="datetime" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -45,7 +47,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -55,6 +57,7 @@
           <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="createAt" Type="datetime" Nullable="false" />
           <Property Name="roleId" Type="int" Nullable="false" />
+          <Property Name="endDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -345,8 +348,10 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="createAt" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -379,6 +384,7 @@
           <Property Name="createAt" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="roleId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
+          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="Image">
           <Key>
@@ -693,6 +699,8 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="DBOrderModel.Category">
               <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="createAt" ColumnName="createAt" />
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="image" ColumnName="image" />
@@ -717,6 +725,7 @@
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="DBOrderModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="password" ColumnName="password" />

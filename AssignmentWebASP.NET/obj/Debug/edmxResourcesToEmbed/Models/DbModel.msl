@@ -19,6 +19,8 @@
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="DBOrderModel.Category">
         <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="createAt" ColumnName="createAt" />
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="image" ColumnName="image" />
@@ -43,6 +45,7 @@
     <EntitySetMapping Name="Employees">
       <EntityTypeMapping TypeName="DBOrderModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="endDate" ColumnName="endDate" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="password" ColumnName="password" />

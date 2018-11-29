@@ -9,6 +9,7 @@ namespace AssignmentWebASP.NET.Controllers
 {
     public class AccountController : Controller
     {
+       
         // GET: Account
         [HttpGet]
         public ActionResult Register()

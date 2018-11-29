@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -20,7 +20,9 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="image" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="bit" />
+    <Property Name="createAt" Type="datetime" />
   </EntityType>
   <EntityType Name="Customer">
     <Key>
@@ -40,7 +42,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="firstName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -50,6 +52,7 @@
     <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="createAt" Type="datetime" Nullable="false" />
     <Property Name="roleId" Type="int" Nullable="false" />
+    <Property Name="endDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Image">
     <Key>
