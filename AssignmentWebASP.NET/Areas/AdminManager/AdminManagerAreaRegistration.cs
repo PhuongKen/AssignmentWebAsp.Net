@@ -17,7 +17,8 @@ namespace AssignmentWebASP.NET.Areas.AdminManager
             context.MapRoute(
                 "AdminManager_default",
                 "AdminManager/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "AssignmentWebASP.NET.Areas.AdminManager.Controllers" }
             );
         }
     }

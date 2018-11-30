@@ -28,9 +28,17 @@ namespace AssignmentWebASP.NET.Controllers
                     ViewBag.DuplicateMessage = "Tài khoản này đã tồn tại";
                     return View("Register");
                 }
-                customerModel.createAt = DateTime.Now;
-                dbModel.Customers.Add(customerModel);
-                dbModel.SaveChanges();
+                else
+                {
+                    var pass = customerModel.password;
+                    var MD5Pass = Encryptor.MD5Hash(pass);
+                    customerModel.password = MD5Pass;
+                    customerModel.ConfirmPassword = MD5Pass;
+                    customerModel.createAt = DateTime.Now;
+                    customerModel.status = 0;
+                    dbModel.Customers.Add(customerModel);
+                    dbModel.SaveChanges();
+                }
             }
             ModelState.Clear();
             ViewBag.SuccessMessage = "Đăng ký thành công";
@@ -48,7 +56,9 @@ namespace AssignmentWebASP.NET.Controllers
         {
             using (DbModels db = new DbModels())
             {
-                var email = db.Customers.Where(x => x.email == customerModel.email && x.password == customerModel.password).FirstOrDefault();
+                var pass = customerModel.password;
+                var MD5Pass = Encryptor.MD5Hash(pass);
+                var email = db.Customers.Where(x => x.email == customerModel.email && x.password == MD5Pass).FirstOrDefault();
                 if (email == null)
                 {
                     customerModel.LoginErrorMessage = "Sai tài khoản hoặc mật khẩu.";

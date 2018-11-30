@@ -42,6 +42,7 @@
           <Property Name="gender" Type="int" Nullable="false" />
           <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="createAt" Type="date" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -368,6 +369,7 @@
           <Property Name="createAt" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Images" Relationship="Self.FK_Image_Image" FromRole="Customer" ToRole="Image" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Order" FromRole="Customer" ToRole="Order" />
+          <Property Name="status" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -710,6 +712,7 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="DBOrderModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="password" ColumnName="password" />

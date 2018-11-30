@@ -43,11 +43,10 @@ namespace AssignmentWebASP.NET.Models
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập tên của bạn.")]
-        [StringLength(35, MinimumLength = 4)]
         public string name { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập số điện thoại của bạn.")]
-        //[MaxLength(10)]
+        [DataType(DataType.PhoneNumber)]
         public int phone { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập ngày sinh của bạn.")]
@@ -64,6 +63,8 @@ namespace AssignmentWebASP.NET.Models
         [Required(ErrorMessage = "Vui lòng nhập ngày tạo tài khoản của bạn.")]
         [DataType(DataType.Date)]
         public System.DateTime createAt { get; set; }
+
+        public int status { get; set; }
 
         public string LoginErrorMessage { get; set; }
 

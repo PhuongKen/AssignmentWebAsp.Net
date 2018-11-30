@@ -30,6 +30,7 @@
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="DBOrderModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="password" ColumnName="password" />

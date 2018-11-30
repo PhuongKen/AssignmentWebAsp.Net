@@ -37,6 +37,7 @@
     <Property Name="gender" Type="int" Nullable="false" />
     <Property Name="address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="createAt" Type="date" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
