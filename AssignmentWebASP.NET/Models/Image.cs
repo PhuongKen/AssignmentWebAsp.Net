@@ -21,8 +21,8 @@ namespace AssignmentWebASP.NET.Models
         }
     
         public int id { get; set; }
-        public string image1 { get; set; }
         public int customerId { get; set; }
+        public string image1 { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

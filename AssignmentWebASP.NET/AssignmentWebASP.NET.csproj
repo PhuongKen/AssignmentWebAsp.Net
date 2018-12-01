@@ -51,6 +51,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -303,9 +309,11 @@
     <Content Include="Assets\Admin\vendor\morrisjs\morris.min.js" />
     <Content Include="Assets\Admin\vendor\raphael\raphael.js" />
     <Content Include="Assets\Admin\vendor\raphael\raphael.min.js" />
+    <Content Include="Assets\Client\css\dropzone.css" />
     <Content Include="Assets\Client\css\main.css" />
     <Content Include="Assets\Client\css\main.min.css" />
     <Content Include="Assets\Client\css\StyleRegister.css" />
+    <Content Include="Assets\Client\css\upload.css" />
     <Content Include="Assets\Client\css\util.css" />
     <Content Include="Assets\Client\css\util.min.css" />
     <Content Include="Assets\Client\fonts\elegant-font\html-css\fonts\ElegantIcons.svg" />
@@ -2841,6 +2849,8 @@
     <Content Include="Assets\Client\images\thumb-item-02.jpg" />
     <Content Include="Assets\Client\images\thumb-item-03.jpg" />
     <Content Include="Assets\Client\images\Untitled-5.jpg" />
+    <Content Include="Assets\Client\js\dropzone.js" />
+    <Content Include="Assets\Client\js\jquey.min.js" />
     <Content Include="Assets\Client\js\main.js" />
     <Content Include="Assets\Client\js\main.min.js" />
     <Content Include="Assets\Client\js\map-custom.js" />
@@ -3143,9 +3153,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\slider.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\AdminManager\Models\" />
+    <Folder Include="Assets\Image\Account\" />
     <Folder Include="Assets\Image\Category\" />
     <Folder Include="Assets\Image\Product\" />
   </ItemGroup>

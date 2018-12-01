@@ -64,10 +64,10 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="customerId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_Image_Image" FromRole="Image" ToRole="Customer" />
     <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Image" FromRole="Image" ToRole="OrderDetail" />
+    <Property Name="image1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Material">
     <Key>

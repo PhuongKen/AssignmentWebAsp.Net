@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "UploadImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="~/Assets/Client/css/dropzone.css">
+<link rel="stylesheet" type="text/css" href="~/Assets/Client/css/upload.css">
+@{
+    if (Session["id"] != null)
+    {
+
+        <div class="content">
+            <div class="container-fluid" style="margin-top: 20px">
+
+
+                <div class="row">
+                    <div class="col-md-12 portlets">
+                        <!-- Your awesome content goes here -->
+                        <div class="m-b-30">
+                            <div>
+                                <div id="mydrop">
+                                    <form action="uploade" class="dropzone" id="dropzoneform"></form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+            </div> <!-- container -->
+
+        </div>
+
+
+    }
+    else
+    {
+        <div class="content">
+            <div class="container-fluid" style="margin-top: 20px">
+                <h4 style="color: red; text-align: center">Bạn phải đăng nhập trước khi upload ảnh.</h4>
+                <p style="text-align: center;"><a href="@Url.Action("Login","Account")">Đăng nhập ở đây</a></p>
+            </div>
+        </div>
+    }
+}
+
+<script type="text/javascript" src="~/Assets/Client/js/jquey.min.js"></script>
+<script type="text/javascript" src="~/Assets/Client/js/dropzone.js"></script>

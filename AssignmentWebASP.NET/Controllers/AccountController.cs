@@ -1,7 +1,10 @@
 ﻿using AssignmentWebASP.NET.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,7 +12,7 @@ namespace AssignmentWebASP.NET.Controllers
 {
     public class AccountController : Controller
     {
-       
+
         // GET: Account
         [HttpGet]
         public ActionResult Register()
@@ -78,6 +81,70 @@ namespace AssignmentWebASP.NET.Controllers
         {
             Session.Abandon();
             return RedirectToAction("Login", "Account");
+        }
+        
+       
+
+
+        public ActionResult UploadImage()
+        {
+            return View();
+        }
+
+        public ActionResult uploade()
+        {
+           
+            bool isSavedSuccessfully = true;
+            string fname = "";
+            try
+            {
+                using (DbModels dbModel = new DbModels())
+                {
+                    foreach (string filename in Request.Files)
+                    {
+                        HttpPostedFileBase file = Request.Files[filename];
+                        fname = file.FileName;
+                        if (file != null && file.ContentLength > 0)
+                        {
+                            var path = Path.Combine(Server.MapPath("~/Assets/Image/Account/"));
+                            string pathstring = Path.Combine(path.ToString());
+                            string filename1 = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                            bool isexist = Directory.Exists(pathstring);
+                            if (!isexist)
+                            {
+                                Directory.CreateDirectory(pathstring);
+                            }
+                            string uploadpath = string.Format("{0}\\{1}", pathstring, filename1);
+
+                            Image im = new Image();
+
+                            im.customerId = 8;
+                            im.image1 = filename1;
+                            dbModel.Images.Add(im);
+                            file.SaveAs(uploadpath);
+                        }
+                    }
+                    dbModel.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                isSavedSuccessfully = false;
+            }
+            if (isSavedSuccessfully)
+            {
+                return Json(new
+                {
+                    Message = fname
+                });
+            }
+            else
+            {
+                return Json(new
+                {
+                    Message = "Error in Saving file"
+                });
+            }
         }
     }
 }

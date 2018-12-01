@@ -63,8 +63,8 @@
     <EntitySetMapping Name="Images">
       <EntityTypeMapping TypeName="DBOrderModel.Image">
         <MappingFragment StoreEntitySet="Image">
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="image1" ColumnName="image" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="customerId" ColumnName="customerId" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -60,8 +60,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="image" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="customerId" Type="int" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="250" Nullable="false" />
   </EntityType>
   <EntityType Name="Material">
     <Key>

@@ -65,8 +65,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="image" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="customerId" Type="int" Nullable="false" />
+          <Property Name="image" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="Material">
           <Key>
@@ -393,10 +393,10 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="image1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="customerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Image_Image" FromRole="Image" ToRole="Customer" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Image" FromRole="Image" ToRole="OrderDetail" />
+          <Property Name="image1" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Material">
           <Key>
@@ -745,8 +745,8 @@
           <EntitySetMapping Name="Images">
             <EntityTypeMapping TypeName="DBOrderModel.Image">
               <MappingFragment StoreEntitySet="Image">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="image1" ColumnName="image" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="customerId" ColumnName="customerId" />
               </MappingFragment>
             </EntityTypeMapping>
