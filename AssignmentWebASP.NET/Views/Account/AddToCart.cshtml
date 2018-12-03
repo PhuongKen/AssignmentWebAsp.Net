@@ -1,0 +1,67 @@
+﻿@model AssignmentWebASP.NET.Models.OrderDetail
+@{
+    ViewBag.Title = "AddToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>
+<h2 style="text-align: center; margin-bottom: 20px;">Thêm vào giỏ hàng.</h2>
+
+@{
+    if (Session["image"] != null)
+    {
+        List<string> list = (List<string>)Session["image"];
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <table width="100%">
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Kích thước</th>
+                            <th>Chất liệu</th>
+                            <th>Số lượng</th>
+                            <th>Thao tác</th>
+                        </tr>
+                        <tbody>
+                            @foreach (var q in list)
+                            {
+                                <tr>
+                                    <td><img src="~/Assets/Image/Account/@q" width="120" height="60" /></td>
+                                    <td>
+                                        @Html.DropDownList("productId", null, htmlAttributes: new { @class = "form-control" })
+                                    </td>
+                                    <td>
+                                        @Html.DropDownList("sizeId", null, htmlAttributes: new { @class = "form-control" })
+                                    </td>
+                                    <td>
+                                        @Html.DropDownList("materialId", null, htmlAttributes: new { @class = "form-control" })
+                                    </td>
+                                    <td>
+                                        @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+                                    </td>
+                                    <td>
+                                        <input type="submit" value="Thêm vào giỏ hàng." />
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div style="text-align: center;">
+            <h4 style="color: red; margin-bottom: 10px;">Bạn chưa upload ảnh để in.</h4>
+            <a href="@Url.Action("UploadImage","Account")">Upload ảnh tại đây</a>
+        </div>
+    }
+}

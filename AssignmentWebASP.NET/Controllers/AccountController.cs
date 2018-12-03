@@ -12,7 +12,8 @@ namespace AssignmentWebASP.NET.Controllers
 {
     public class AccountController : Controller
     {
-
+        private static List<string> list = new List<string>();
+        DbModels db = new DbModels();
         // GET: Account
         [HttpGet]
         public ActionResult Register()
@@ -82,18 +83,21 @@ namespace AssignmentWebASP.NET.Controllers
             Session.Abandon();
             return RedirectToAction("Login", "Account");
         }
-        
-       
 
+        [HttpGet]
+        public ActionResult update()
+        {
+            return View();
+        }
 
         public ActionResult UploadImage()
         {
             return View();
         }
 
+        
         public ActionResult uploade()
         {
-           
             bool isSavedSuccessfully = true;
             string fname = "";
             try
@@ -109,23 +113,21 @@ namespace AssignmentWebASP.NET.Controllers
                             var path = Path.Combine(Server.MapPath("~/Assets/Image/Account/"));
                             string pathstring = Path.Combine(path.ToString());
                             string filename1 = Guid.NewGuid() + Path.GetExtension(file.FileName);
+
                             bool isexist = Directory.Exists(pathstring);
                             if (!isexist)
                             {
                                 Directory.CreateDirectory(pathstring);
                             }
                             string uploadpath = string.Format("{0}\\{1}", pathstring, filename1);
-
-                            Image im = new Image();
-
-                            im.customerId = 8;
-                            im.image1 = filename1;
-                            dbModel.Images.Add(im);
+                            list.Add(filename1);
                             file.SaveAs(uploadpath);
                         }
                     }
-                    dbModel.SaveChanges();
+                    
+                    Session["image"] = list;
                 }
+
             }
             catch (Exception)
             {
@@ -145,6 +147,28 @@ namespace AssignmentWebASP.NET.Controllers
                     Message = "Error in Saving file"
                 });
             }
+        }
+
+        public ActionResult AddToCart()
+        {
+            PopulateDepartmentsDropDownList();
+            return View();
+        }
+
+        private void PopulateDepartmentsDropDownList(object selectedDepartment = null)
+        {
+            var productQueryString = from d in db.Products
+                                      orderby d.name
+                                      select d;
+            var materialQueryString = from d in db.Materials
+                                      orderby d.name
+                                      select d;
+            var sizeQueryString = from d in db.Sizes
+                                      orderby d.name
+                                      select d;
+            ViewBag.productId = new SelectList(productQueryString, "id", "name", selectedDepartment);
+            ViewBag.materialId = new SelectList(materialQueryString, "id", "name", selectedDepartment);
+            ViewBag.sizeId = new SelectList(sizeQueryString, "id", "name", selectedDepartment);
         }
     }
 }

@@ -10,11 +10,8 @@
 @{
     if (Session["id"] != null)
     {
-
         <div class="content">
             <div class="container-fluid" style="margin-top: 20px">
-
-
                 <div class="row">
                     <div class="col-md-12 portlets">
                         <!-- Your awesome content goes here -->
@@ -28,9 +25,12 @@
                     </div>
                 </div>
                 <!-- end row -->
-
             </div> <!-- container -->
-
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12"><a href="@Url.Action("AddToCart","Account")" class="btn btn-block btn-lg btn-primary">Chuyển sang đặt hàng.</a></div>
+            </div>
         </div>
 
 

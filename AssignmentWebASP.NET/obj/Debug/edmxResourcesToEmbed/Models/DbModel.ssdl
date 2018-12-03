@@ -100,8 +100,8 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="image" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="description" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="nvarchar" MaxLength="50" />
     <Property Name="price" Type="float" Nullable="false" />
     <Property Name="status" Type="int" Nullable="false" />
     <Property Name="createAt" Type="datetime" Nullable="false" />

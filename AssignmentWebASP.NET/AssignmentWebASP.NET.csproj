@@ -309,10 +309,10 @@
     <Content Include="Assets\Admin\vendor\morrisjs\morris.min.js" />
     <Content Include="Assets\Admin\vendor\raphael\raphael.js" />
     <Content Include="Assets\Admin\vendor\raphael\raphael.min.js" />
+    <Content Include="Assets\Client\css\boostrap.css" />
     <Content Include="Assets\Client\css\dropzone.css" />
     <Content Include="Assets\Client\css\main.css" />
     <Content Include="Assets\Client\css\main.min.css" />
-    <Content Include="Assets\Client\css\StyleRegister.css" />
     <Content Include="Assets\Client\css\upload.css" />
     <Content Include="Assets\Client\css\util.css" />
     <Content Include="Assets\Client\css\util.min.css" />
@@ -3127,6 +3127,7 @@
     <Content Include="Assets\Client\vendor\slick\slick-theme.scss" />
     <Content Include="Assets\Client\vendor\slick\slick.less" />
     <Content Include="Assets\Client\vendor\slick\slick.scss" />
+    <Content Include="Assets\Client\js\boostrap.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -3154,6 +3155,8 @@
     <Content Include="Views\Shared\slider.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\UploadImage.cshtml" />
+    <Content Include="Views\Account\update.cshtml" />
+    <Content Include="Views\Account\AddToCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\AdminManager\Models\" />
